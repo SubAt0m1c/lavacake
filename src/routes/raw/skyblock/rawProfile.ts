@@ -14,7 +14,7 @@ export default {
         let previouslyCached = HypixelData ? true : false
 
         if (!previouslyCached) {
-            await hypixelApi.get(`/v2/skyblock/profile/?uuid=${params.get('uuid')}`).then((promise) =>
+            await hypixelApi.get(`/v2/skyblock/profiles?uuid=${params.get('uuid')}`).then((promise) =>
                 promise.json().then((result) => {
                     HypixelData = result
                 }),
