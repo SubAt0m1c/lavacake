@@ -30,7 +30,6 @@ export default {
                     error: 'Could not retrieve profile data from cache or API',
                 },
             )
-        HypixelData = HypixelData.player
 
         Cache[UUID] = HypixelData
 
@@ -38,9 +37,15 @@ export default {
         if (!previouslyCached) {
             setTimeout(() => {
                 delete Cache[UUID]
-            }, 120 * 1000)
+            }, 600 * 1000)
         }
 
-        return Res(HypixelData)
+        return Res(
+            {
+                success: true,
+                cached: previouslyCached,
+                profiles: HypixelData.profiles
+            }
+        )
     },
 }
