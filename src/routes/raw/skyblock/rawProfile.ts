@@ -4,7 +4,7 @@ import Cache from '../../../utils/Cache'
 
 export default {
     path: '/rawPlayer',
-    params: ['name'],
+    params: ['uuid'],
     async run(req: Request, params: URLSearchParams) {
         const UUID = params.get('uuid')
         if (!UUID) {
